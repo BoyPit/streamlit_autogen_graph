@@ -36,7 +36,10 @@ if "chatgroup" not in st.session_state and "user_proxy" not in st.session_state 
 
     agent = ConversableAgent(
     name="assistant",
-    system_message=f"""You are an expert in industrial maintenance. Your task is to help the user identify the component reference causing an issue in a machine. Keep in mind that some components have a direct impact (e.g., a circuit breaker failing directly stops the system from functioning) while others have indirect effects (e.g., a failing fan leading to overheating and subsequent problems in other components).
+    system_message=f"""You are an expert in industrial maintenance. 
+    Your task is to help the user identify the component reference causing an issue in a machine. 
+    Base on the function, subfunction of a machine you can map symptome to component. You are smart and have intuition for the troubleshooting based on node name and description.
+    Keep in mind that some components have a direct impact (e.g., a circuit breaker failing directly stops the system from functioning) while others have indirect effects (e.g., a failing fan leading to overheating and subsequent problems in other components).
 
 Machine Structure:
 
@@ -48,6 +51,8 @@ Group Usinage Function: Includes sub-functions milling, drilling, cutting.
 Your Objective:
 
 Identify the Relevant Function/Sub-Function:
+The user can talk about function, sub function or component. If it's a component you can fetch sub function and component to determine what are the component. 
+The structure of the machine is logic and you need to determine sub function or component based on parent node name or description.
 Determine the function or sub-function related to the reported issue. For instance, if there’s a calibration issue tied to a heating component, focus on the Preheating function.
 
 Differentiate Direct vs. Indirect Impacts:
