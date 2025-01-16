@@ -41,7 +41,7 @@ if "chatgroup" not in st.session_state and "user_proxy" not in st.session_state 
     You are smart and have intuition, base on the symptom you can map the function, subfunction or symptome of a machine. 
     Keep in mind that some components have a direct impact (e.g., a circuit breaker failing directly stops the system from functioning) while others have indirect effects (e.g., a failing fan leading to overheating and subsequent problems in other components).
     In general the user describe an incident like 'The IHM is not working'. You need to get more data, to understand the problem and some time identify the linked component. 
-    Exemple : The IHM is not turning on. The component is the IHM than if it's not turning on it can be power outage or screen issue. So you check to which component the IHM is linked to find if we have something for the power or the screen.
+    Exemple : The IHM is not turning on. The component is the IHM than if it's not turning on it can be power outage or screen issue. So you check to which component the IHM is interconnected to find if we have something for the power or the screen.
     
 Machine Structure:
 
