@@ -1,0 +1,9 @@
+2025-01-19 18:51:20,911 - INFO - Session Replay: https://app.agentops.ai/drilldown?session_id=47895892-e988-4e3c-81d1-6d7148061770
+2025-01-19 18:51:27,744 - WARNING - AgentOps has already been initialized. If you are trying to start a session, call agentops.start_session() instead.
+2025-01-19 18:51:28,162 - INFO - Session Replay: https://app.agentops.ai/drilldown?session_id=f268af7c-5640-4f41-83b7-c599ed172b8e
+2025-01-19 18:51:28,207 - WARNING - Could not create agent - multiple sessions detected. You must use session.create_agent() instead of agentops.create_agent() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management
+2025-01-19 18:51:28,208 - WARNING - Could not create agent - multiple sessions detected. You must use session.create_agent() instead of agentops.create_agent() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management
+2025-01-19 18:51:28,208 - WARNING - Could not create agent - multiple sessions detected. You must use session.create_agent() instead of agentops.create_agent() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management
+2025-01-19 18:51:28,247 - WARNING - Could not record event - multiple sessions detected. You must use session.record() instead of agentops.record() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management
+2025-01-19 18:51:28,263 - WARNING - Could not record event - multiple sessions detected. You must use session.record() instead of agentops.record() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management
+2025-01-19 18:51:28,273 - WARNING - Could not record event - multiple sessions detected. You must use session.record() instead of agentops.record() More info: https://docs.agentops.ai/v1/concepts/core-concepts#session-management

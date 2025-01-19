@@ -8,7 +8,6 @@ import openai
 from typing import List, Dict, Any, Annotated
 import streamlit as st
 
-
 URL = st.secrets["NEO4J_URI"]
 USER = st.secrets["NEO4J_USERNAME"]
 PASSWORD = st.secrets["NEO4J_PASSWORD"]

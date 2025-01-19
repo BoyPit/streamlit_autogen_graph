@@ -1,14 +1,13 @@
 import streamlit as st
 from openai import OpenAI
-import os
 from autogen import AssistantAgent, UserProxyAgent, register_function, ConversableAgent
 import asyncio
 import autogen
-import pyodbc
-import json 
 from tools import search_component, search_sous_function, search_function, init_context, search_component_interconnections
+import hmac
 
- 
+
+
 # Show title and description.
 st.title("💬 Agent Prototype ")
 st.write(
@@ -16,9 +15,38 @@ st.write(
 )
 
 # Show title and description.
+def check_password():
+    """Returns `True` if the user had the correct password."""
+
+    def password_entered():
+        """Checks whether a password entered by the user is correct."""
+        if hmac.compare_digest(st.session_state["password"], st.secrets["password"]):
+            st.session_state["password_correct"] = True
+            del st.session_state["password"]  # Don't store the password.
+        else:
+            st.session_state["password_correct"] = False
+
+    # Return True if the password is validated.
+    if st.session_state.get("password_correct", False):
+        return True
+
+    # Show input for password.
+    st.text_input(
+        "Password", type="password", on_change=password_entered, key="password"
+    )
+    if "password_correct" in st.session_state:
+        st.error("😕 Password incorrect")
+    return False
+
+if not check_password():
+    st.stop()  
+
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+
+
 
 class TrackableUserProxyAgent(UserProxyAgent):
     def _process_received_message(self, message, sender, silent):
@@ -28,6 +56,7 @@ class TrackableUserProxyAgent(UserProxyAgent):
 
 
 if "chatgroup" not in st.session_state and "user_proxy" not in st.session_state and "agent" not in st.session_state :
+
     llm_config = {
         "config_list": [{"model": "gpt-4o", "api_key": st.secrets["OPENAI_API_KEY"]}],
     }
